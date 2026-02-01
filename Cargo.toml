@@ -1,0 +1,18 @@
+[package]
+name = "pureff"
+version = "0.1.0"
+edition = "2024"
+description = "GitHub App for fast-forward merging pull requests"
+documentation = "https://github.com/tensor5/pureff/blob/main/README.md"
+homepage = "https://github.com/apps/pureff"
+repository = "https://github.com/tensor5/pureff"
+publish = false
+
+[dependencies]
+anyhow = "1.0.100"
+const_format = "0.2"
+dotenv = "0.15.0"
+octofer = "0.1.0"
+serde_json = "1.0.149"
+tokio = "1.49.0"
+tracing = "0.1.44"
