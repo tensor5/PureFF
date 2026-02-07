@@ -27,7 +27,7 @@ fn main() -> anyhow::Result<()> {
 
 #[tokio::main]
 async fn main_inner() -> anyhow::Result<()> {
-    dotenv::dotenv().ok();
+    dotenvy::dotenv().ok();
 
     let config = Config::from_env()?;
     config.init_logging();
