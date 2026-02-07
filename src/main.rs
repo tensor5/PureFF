@@ -1,6 +1,7 @@
 use anyhow::Context;
 use octofer::github::UserId;
 use octofer::{Config, Octofer};
+use pid1::Pid1Settings;
 use std::sync::Arc;
 use tracing::info;
 
@@ -19,14 +20,21 @@ pub struct AppData {
     pub bot_user_id: UserId,
 }
 
+fn main() -> anyhow::Result<()> {
+    Pid1Settings::new().enable_log(true).launch()?;
+    main_inner()
+}
+
 #[tokio::main]
-async fn main() -> anyhow::Result<()> {
+async fn main_inner() -> anyhow::Result<()> {
     dotenv::dotenv().ok();
 
     let config = Config::from_env()?;
     config.init_logging();
 
-    info!("Starting {} v{}", NAME, VERSION);
+    let id = std::process::id();
+
+    info!("Starting {NAME} v{VERSION} (PID: {id})");
 
     let bot_user_id = load_bot_user_id()?;
 
