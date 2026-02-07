@@ -68,6 +68,7 @@
                 };
               };
               inherit created;
+              tag = self.rev or null;
             };
 
           default = pkgs.rustPlatform.buildRustPackage {
