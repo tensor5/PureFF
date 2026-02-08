@@ -1,0 +1,24 @@
+name: Build and push container image
+
+on:
+  push:
+
+jobs:
+  build-and-push:
+    name: Build and push
+    permissions:
+      packages: write
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+      - uses: nixbuild/nix-quick-install-action@2c9db80fb984ceb1bcaa77cdda3fdf8cfba92035 # v34
+        with:
+          nix_version: 2.31.2
+      - name: Build image
+        run: nix build .#containerImage
+      - name: Push image to GHCR
+        run: |
+          nix run .#containerImage.copyTo -- \
+            docker://ghcr.io/${{ github.repository_owner }}/pureff:${{ github.sha }} \
+            --dest-username ${{ github.actor }} \
+            --dest-password ${{ github.token }}
