@@ -24,6 +24,7 @@
             actionlint
             cargo
             clippy
+            crate2nix
             gh
             gosmee
             rust-analyzer
@@ -58,12 +59,12 @@
                 };
                 Labels = {
                   "org.opencontainers.image.created" = created;
-                  "org.opencontainers.image.description" = package.meta.description;
+                  "org.opencontainers.image.description" = cargoToml.package.description;
                   "org.opencontainers.image.documentation" = cargoToml.package.documentation;
                   "org.opencontainers.image.revision" = self.rev or "";
                   "org.opencontainers.image.source" = cargoToml.package.repository;
                   "org.opencontainers.image.title" = "PureFF";
-                  "org.opencontainers.image.url" = package.meta.homepage;
+                  "org.opencontainers.image.url" = cargoToml.package.homepage;
                   "org.opencontainers.image.version" = package.version;
                 };
               };
@@ -71,18 +72,13 @@
               tag = self.rev or null;
             };
 
-          default = pkgs.rustPlatform.buildRustPackage {
-            pname = cargoToml.package.name;
-            version = cargoToml.package.version;
-            src = ./.;
-            cargoLock.lockFile = ./Cargo.lock;
-
-            meta = {
-              description = cargoToml.package.description;
-              homepage = cargoToml.package.homepage;
-              mainProgram = cargoToml.package.name;
+          default = let
+            cargoNix = import ./Cargo.nix {
+              inherit nixpkgs;
+              inherit pkgs;
             };
-          };
+          in
+            cargoNix.rootCrate.build;
         };
       }
     );
