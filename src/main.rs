@@ -10,8 +10,8 @@ mod messages;
 mod octocrab_ext;
 
 use handlers::{
-    installation_handler, installation_repositories_handler, issue_comment_handler,
-    pull_request_handler, push_handler,
+    github_app_authorization_handler, installation_handler, installation_repositories_handler,
+    issue_comment_handler, pull_request_handler, push_handler,
 };
 
 const NAME: &str = "PureFF";
@@ -49,6 +49,8 @@ async fn main_inner() -> anyhow::Result<()> {
 
     let mut app = Octofer::new(config).await?;
 
+    app.on_github_app_authorization(github_app_authorization_handler, Arc::clone(&app_data))
+        .await;
     app.on_installation(installation_handler, Arc::clone(&app_data))
         .await;
     app.on_installation_repositories(installation_repositories_handler, Arc::clone(&app_data))
