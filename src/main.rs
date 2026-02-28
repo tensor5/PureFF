@@ -37,7 +37,15 @@ async fn main_inner() -> anyhow::Result<()> {
 
     let id = std::process::id();
 
-    info!("Starting {NAME} v{VERSION} (PID: {id})");
+    let git_sha = env!("VERGEN_GIT_SHA");
+    let git_dirty = env!("VERGEN_GIT_DIRTY");
+    let git_commit = if git_dirty == "true" {
+        format!("{}-dirty", git_sha)
+    } else {
+        git_sha.to_string()
+    };
+
+    info!("Starting {NAME} v{VERSION} ({git_commit}) (PID: {id})");
 
     let bot_user_id = load_bot_user_id()?;
 
