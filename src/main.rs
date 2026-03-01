@@ -16,6 +16,10 @@ use handlers::{
 
 const NAME: &str = "PureFF";
 const VERSION: &str = env!("CARGO_PKG_VERSION");
+const GIT_SHA: &str = match option_env!("GIT_SHA") {
+    Some(v) => v,
+    None => "dev",
+};
 
 pub struct AppData {
     pub name: &'static str,
@@ -37,15 +41,7 @@ async fn main_inner() -> anyhow::Result<()> {
 
     let id = std::process::id();
 
-    let git_sha = env!("VERGEN_GIT_SHA");
-    let git_dirty = env!("VERGEN_GIT_DIRTY");
-    let git_commit = if git_dirty == "true" {
-        format!("{}-dirty", git_sha)
-    } else {
-        git_sha.to_string()
-    };
-
-    info!("Starting {NAME} v{VERSION} ({git_commit}) (PID: {id})");
+    info!("Starting {NAME} v{VERSION} ({GIT_SHA}) (PID: {id})");
 
     let bot_user_id = load_bot_user_id()?;
 

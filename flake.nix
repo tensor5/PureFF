@@ -61,7 +61,7 @@
                   "org.opencontainers.image.created" = created;
                   "org.opencontainers.image.description" = cargoToml.package.description;
                   "org.opencontainers.image.documentation" = cargoToml.package.documentation;
-                  "org.opencontainers.image.revision" = self.rev or "";
+                  "org.opencontainers.image.revision" = self.rev or self.dirtyRev;
                   "org.opencontainers.image.source" = cargoToml.package.repository;
                   "org.opencontainers.image.title" = "PureFF";
                   "org.opencontainers.image.url" = cargoToml.package.homepage;
@@ -69,11 +69,21 @@
                 };
               };
               inherit created;
-              tag = self.rev or null;
+              tag = self.rev or self.dirtyRev;
             };
 
           default = let
             cargoNix = import ./Cargo.nix {
+              buildRustCrateForPkgs = pkgs:
+                pkgs.buildRustCrate.override {
+                  defaultCrateOverrides =
+                    pkgs.defaultCrateOverrides
+                    // {
+                      pureff = attrs: {
+                        GIT_SHA = self.shortRev or self.dirtyShortRev;
+                      };
+                    };
+                };
               inherit nixpkgs;
               inherit pkgs;
             };

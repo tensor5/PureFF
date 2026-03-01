@@ -17,7 +17,3 @@ pid1 = "0.1.5"
 serde_json = "1.0.149"
 tokio = "1.49.0"
 tracing = "0.1.44"
-
-[build-dependencies]
-anyhow = "1.0.100"
-vergen-gix = { version = "9.1.0", features = ["build", "cargo"] }
