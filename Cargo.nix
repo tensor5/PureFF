@@ -220,9 +220,9 @@ rec {
       };
       "axum" = rec {
         crateName = "axum";
-        version = "0.8.8";
+        version = "0.8.9";
         edition = "2021";
-        sha256 = "1f4p0m04mgwpn8b40i9r5mgqxk6w11sv4yri6xfqk305nhyayllb";
+        sha256 = "146df5x8dhczm1sp939gr3839220wl6rxc1k65bzc450z72ridii";
         dependencies = [
           {
             name = "axum-core";
@@ -455,9 +455,9 @@ rec {
       };
       "axum-macros" = rec {
         crateName = "axum-macros";
-        version = "0.5.0";
+        version = "0.5.1";
         edition = "2021";
-        sha256 = "0p6011ld0izk22fmdxsps58cigilq2yhnmyqw4f8bslg09gdwkv0";
+        sha256 = "1jhawa9d6pgkcqflbqz7vylv4ksh9wm31kdrcd1jrggv7g16i8ks";
         procMacro = true;
         libName = "axum_macros";
         dependencies = [
@@ -503,9 +503,9 @@ rec {
       };
       "bitflags" = rec {
         crateName = "bitflags";
-        version = "2.11.0";
+        version = "2.11.1";
         edition = "2021";
-        sha256 = "1bwjibwry5nfwsfm9kjg2dqx5n5nja9xymwbfl6svnn8jsz6ff44";
+        sha256 = "1cvqijg3rvwgis20a66vfdxannjsxfy5fgjqkaq3l13gyfcj4lf4";
         authors = [
           "The Rust Project Developers"
         ];
@@ -679,9 +679,9 @@ rec {
       };
       "const_format" = rec {
         crateName = "const_format";
-        version = "0.2.35";
+        version = "0.2.36";
         edition = "2021";
-        sha256 = "1b9h03z3k76ail1ldqxcqmsc4raa7dwgwwqwrjf6wmism5lp9akz";
+        sha256 = "07ncczs8yndga2f8p4386c827l4fxwzl0pbwp7ijnhcsmlbsd0a4";
         authors = [
           "rodrimati1992 <rodrimatt1985@gmail.com>"
         ];
@@ -689,6 +689,12 @@ rec {
           {
             name = "const_format_proc_macros";
             packageId = "const_format_proc_macros";
+          }
+          {
+            name = "konst";
+            packageId = "konst";
+            usesDefaultFeatures = false;
+            features = [ "rust_1_64" ];
           }
         ];
         features = {
@@ -703,10 +709,9 @@ rec {
           "constant_time_as_str" = [ "fmt" ];
           "derive" = [ "fmt" "const_format_proc_macros/derive" ];
           "fmt" = [ "rust_1_83" ];
-          "konst" = [ "dep:konst" ];
           "more_str_macros" = [ "rust_1_64" ];
           "nightly_const_generics" = [ "const_generics" ];
-          "rust_1_64" = [ "rust_1_51" "konst" "konst/rust_1_64" ];
+          "rust_1_64" = [ "rust_1_51" ];
           "rust_1_83" = [ "rust_1_64" ];
         };
         resolvedDefaultFeatures = [ "default" ];
@@ -1665,9 +1670,9 @@ rec {
       };
       "hyper-rustls" = rec {
         crateName = "hyper-rustls";
-        version = "0.27.8";
+        version = "0.27.9";
         edition = "2021";
-        sha256 = "0nw990f5w2jpr8nqhsyk0xz22cxkn5hdj9k89rmhvg6ls632zdf2";
+        sha256 = "03vfnsm873wsp1dk0q85nxvk7w6syp8c2m5bcdjcyfgg4786ijik";
         libName = "hyper_rustls";
         dependencies = [
           {
@@ -2463,6 +2468,53 @@ rec {
         };
         resolvedDefaultFeatures = [ "default" "pem" "simple_asn1" "use_pem" ];
       };
+      "konst" = rec {
+        crateName = "konst";
+        version = "0.2.20";
+        edition = "2018";
+        sha256 = "1yyf1fhk28wbf1lqrga9as4cpfmpbry9a5vvdqyxgz14g3nk708j";
+        authors = [
+          "rodrimati1992 <rodrimatt1985@gmail.com>"
+        ];
+        dependencies = [
+          {
+            name = "konst_macro_rules";
+            packageId = "konst_macro_rules";
+          }
+        ];
+        features = {
+          "__ui" = [ "__test" "trybuild" "rust_latest_stable" ];
+          "const_generics" = [ "rust_1_51" ];
+          "constant_time_slice" = [ "rust_latest_stable" ];
+          "default" = [ "cmp" "parsing" ];
+          "deref_raw_in_fn" = [ "rust_1_56" ];
+          "konst_proc_macros" = [ "dep:konst_proc_macros" ];
+          "mut_refs" = [ "rust_latest_stable" "konst_macro_rules/mut_refs" ];
+          "nightly_mut_refs" = [ "mut_refs" "konst_macro_rules/nightly_mut_refs" ];
+          "parsing" = [ "parsing_no_proc" "konst_proc_macros" ];
+          "rust_1_51" = [ "konst_macro_rules/rust_1_51" ];
+          "rust_1_55" = [ "rust_1_51" "konst_macro_rules/rust_1_55" ];
+          "rust_1_56" = [ "rust_1_55" "konst_macro_rules/rust_1_56" ];
+          "rust_1_57" = [ "rust_1_56" "konst_macro_rules/rust_1_57" ];
+          "rust_1_61" = [ "rust_1_57" "konst_macro_rules/rust_1_61" ];
+          "rust_1_64" = [ "rust_1_61" ];
+          "rust_latest_stable" = [ "rust_1_64" ];
+          "trybuild" = [ "dep:trybuild" ];
+        };
+        resolvedDefaultFeatures = [ "rust_1_51" "rust_1_55" "rust_1_56" "rust_1_57" "rust_1_61" "rust_1_64" ];
+      };
+      "konst_macro_rules" = rec {
+        crateName = "konst_macro_rules";
+        version = "0.2.19";
+        edition = "2018";
+        sha256 = "0dswja0dqcww4x3fwjnirc0azv2n6cazn8yv0kddksd8awzkz4x4";
+        authors = [
+          "rodrimati1992 <rodrimatt1985@gmail.com>"
+        ];
+        features = {
+        };
+        resolvedDefaultFeatures = [ "rust_1_51" "rust_1_55" "rust_1_56" "rust_1_57" "rust_1_61" ];
+      };
       "lazy_static" = rec {
         crateName = "lazy_static";
         version = "1.5.0";
@@ -2478,9 +2530,9 @@ rec {
       };
       "libc" = rec {
         crateName = "libc";
-        version = "0.2.184";
+        version = "0.2.185";
         edition = "2021";
-        sha256 = "1bz4525m7lwzr63iidh7lp9ppz2c9va1pn6fyjh5wsp1ajjd5xa8";
+        sha256 = "13rbdaa59l3w92q7kfcxx8zbikm99zzw54h59aqvcv5wx47jrzsj";
         authors = [
           "The Rust Project Developers"
         ];
@@ -3716,9 +3768,9 @@ rec {
       };
       "rustls-webpki" = rec {
         crateName = "rustls-webpki";
-        version = "0.103.11";
+        version = "0.103.12";
         edition = "2021";
-        sha256 = "1m3wpj1sfnpgwd6692lf42bcjsk6mbl6dwgarkn20jzadx8sz9i0";
+        sha256 = "01nxzkfd1l96jzp04svc7iznlkarzx3wb9p63a0i17rc4y2vnyc2";
         libName = "webpki";
         dependencies = [
           {
@@ -4708,9 +4760,9 @@ rec {
       };
       "tokio" = rec {
         crateName = "tokio";
-        version = "1.51.1";
+        version = "1.52.1";
         edition = "2021";
-        sha256 = "131vl4p3hdn8kpvgv6qv06lspfxj7yvk9avq7r6p4jysbicgjszn";
+        sha256 = "1imw1dkkv38p66i33m5hsyk3d6prsbyrayjvqhndjvz89ybywzdn";
         authors = [
           "Tokio Contributors <team@tokio.rs>"
         ];
@@ -5499,9 +5551,9 @@ rec {
       };
       "typenum" = rec {
         crateName = "typenum";
-        version = "1.19.0";
+        version = "1.20.0";
         edition = "2018";
-        sha256 = "1fw2mpbn2vmqan56j1b3fbpcdg80mz26fm53fs16bq5xcq84hban";
+        sha256 = "1pj35y6q11d3y55gdl6g1h2dfhmybjming0jdi9bh0bpnqm11kj0";
         authors = [
           "Paho Lurie-Gregg <paho@paholg.com>"
           "Andre Bogus <bogusandre@gmail.com>"
