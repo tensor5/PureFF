@@ -210,9 +210,9 @@ rec {
       };
       "autocfg" = rec {
         crateName = "autocfg";
-        version = "1.5.0";
+        version = "1.5.1";
         edition = "2015";
-        sha256 = "1s77f98id9l4af4alklmzq46f21c980v13z2r1pcxx6bqgw0d1n0";
+        sha256 = "0lqasy5i30flcgih1b50kvsk6z32g09r1q4ql7q81pj6228jy0zj";
         authors = [
           "Josh Stone <cuviper@gmail.com>"
         ];
@@ -535,9 +535,9 @@ rec {
       };
       "bumpalo" = rec {
         crateName = "bumpalo";
-        version = "3.20.2";
+        version = "3.20.3";
         edition = "2021";
-        sha256 = "1jrgxlff76k9glam0akhwpil2fr1w32gbjdf5hpipc7ld2c7h82x";
+        sha256 = "0jc6va3nwcqikm7chnpdv1s87my3gs2j7g1sc7g3k91brg3arxbj";
         authors = [
           "Nick Fitzgerald <fitzgen@gmail.com>"
         ];
@@ -566,9 +566,9 @@ rec {
       };
       "cc" = rec {
         crateName = "cc";
-        version = "1.2.60";
+        version = "1.2.62";
         edition = "2018";
-        sha256 = "084a8ziprdlyrj865f3303qr0b7aaggilkl18slncss6m4yp1ia3";
+        sha256 = "164zsxcy2zzvbbh1qpbrsssz8kmria41j4agih47sal3y1cyip51";
         authors = [
           "Alex Crichton <alex@alexcrichton.com>"
         ];
@@ -971,12 +971,9 @@ rec {
       };
       "either" = rec {
         crateName = "either";
-        version = "1.15.0";
+        version = "1.16.0";
         edition = "2021";
-        sha256 = "069p1fknsmzn9llaizh77kip0pqmcwpdsykv2x30xpjyija5gis8";
-        authors = [
-          "bluss"
-        ];
+        sha256 = "17k7jfbdz7k440h6lws9baz8p9zlxgb41sig3w81h80nwzsjyqli";
         features = {
           "default" = [ "std" ];
           "serde" = [ "dep:serde" ];
@@ -2313,9 +2310,9 @@ rec {
       };
       "idna_adapter" = rec {
         crateName = "idna_adapter";
-        version = "1.2.1";
-        edition = "2021";
-        sha256 = "0i0339pxig6mv786nkqcxnwqa87v4m94b2653f6k3aj0jmhfkjis";
+        version = "1.2.2";
+        edition = "2024";
+        sha256 = "0557p76l8hj35r9zn1yv7c6x1c0qbrsffmg80n0yy8361ly3fs6b";
         authors = [
           "The rust-url developers"
         ];
@@ -2336,39 +2333,6 @@ rec {
         };
         resolvedDefaultFeatures = [ "compiled_data" ];
       };
-      "iri-string" = rec {
-        crateName = "iri-string";
-        version = "0.7.12";
-        edition = "2021";
-        sha256 = "082fpx6c5ghvmqpwxaf2b268m47z2ic3prajqbmi1s1qpfj5kri5";
-        libName = "iri_string";
-        authors = [
-          "YOSHIOKA Takuma <nop_thread@nops.red>"
-        ];
-        dependencies = [
-          {
-            name = "memchr";
-            packageId = "memchr";
-            optional = true;
-            usesDefaultFeatures = false;
-          }
-          {
-            name = "serde";
-            packageId = "serde";
-            optional = true;
-            usesDefaultFeatures = false;
-            features = [ "derive" ];
-          }
-        ];
-        features = {
-          "alloc" = [ "serde?/alloc" ];
-          "default" = [ "std" ];
-          "memchr" = [ "dep:memchr" ];
-          "serde" = [ "dep:serde" ];
-          "std" = [ "alloc" "memchr?/std" "serde?/std" ];
-        };
-        resolvedDefaultFeatures = [ "alloc" "default" "std" ];
-      };
       "itoa" = rec {
         crateName = "itoa";
         version = "1.0.18";
@@ -2383,14 +2347,25 @@ rec {
       };
       "js-sys" = rec {
         crateName = "js-sys";
-        version = "0.3.95";
+        version = "0.3.99";
         edition = "2021";
-        sha256 = "1jhj3kgxxgwm0cpdjiz7i2qapqr7ya9qswadmr63dhwx3lnyjr19";
+        sha256 = "04azrzsz91gr5s3z0ij36lz0kj9ry4lw3jz0mmbiwb251rsc8aql";
         libName = "js_sys";
         authors = [
           "The wasm-bindgen Developers"
         ];
         dependencies = [
+          {
+            name = "cfg-if";
+            packageId = "cfg-if";
+          }
+          {
+            name = "futures-util";
+            packageId = "futures-util";
+            optional = true;
+            usesDefaultFeatures = false;
+            features = [ "std" ];
+          }
           {
             name = "once_cell";
             packageId = "once_cell";
@@ -2404,9 +2379,8 @@ rec {
         ];
         features = {
           "default" = [ "std" "unsafe-eval" ];
-          "futures" = [ "dep:cfg-if" "dep:futures-util" ];
-          "futures-core-03-stream" = [ "futures" "dep:futures-core" ];
-          "std" = [ "wasm-bindgen/std" ];
+          "futures-core-03-stream" = [ "dep:futures-util" "dep:futures-core" ];
+          "std" = [ "wasm-bindgen/std" "dep:futures-util" ];
         };
         resolvedDefaultFeatures = [ "default" "std" "unsafe-eval" ];
       };
@@ -2530,9 +2504,9 @@ rec {
       };
       "libc" = rec {
         crateName = "libc";
-        version = "0.2.185";
+        version = "0.2.186";
         edition = "2021";
-        sha256 = "13rbdaa59l3w92q7kfcxx8zbikm99zzw54h59aqvcv5wx47jrzsj";
+        sha256 = "0rnyhzjyqq9x56skkllbjzzzwym3r61lq3l4hqj64v71gw0r3av8";
         authors = [
           "The Rust Project Developers"
         ];
@@ -2704,12 +2678,9 @@ rec {
       };
       "nix" = rec {
         crateName = "nix";
-        version = "0.31.2";
+        version = "0.31.3";
         edition = "2021";
-        sha256 = "1lzmcqcnb9z8l4aq5ympx71bcwc0y5yf7d8jv6hnn7hc682hfvax";
-        authors = [
-          "The nix-rust Project Developers"
-        ];
+        sha256 = "0gbwnjfny9rq9hl5bz4ry520n9rnfknna4bg88n66f7zx3yx486g";
         dependencies = [
           {
             name = "bitflags";
@@ -2812,9 +2783,9 @@ rec {
       };
       "num-conv" = rec {
         crateName = "num-conv";
-        version = "0.2.1";
+        version = "0.2.2";
         edition = "2021";
-        sha256 = "0rqrr29brafaa2za352pbmhkk556n7f8z9rrkgmjp1idvdl3fry6";
+        sha256 = "0hg4f9bwmy7cwpxdkm165dmkfc8jhkkayci234jsmi5ssb33j5sj";
         libName = "num_conv";
         authors = [
           "Jacob Pratt <jacob@jhpratt.dev>"
@@ -3308,9 +3279,9 @@ rec {
       };
       "pin-project" = rec {
         crateName = "pin-project";
-        version = "1.1.11";
+        version = "1.1.13";
         edition = "2021";
-        sha256 = "05zm3y3bl83ypsr6favxvny2kys4i19jiz1y18ylrbxwsiz9qx7i";
+        sha256 = "09091qp946lpmjz4yp0xil1r5v4hgc91fi19dg5csayhdqrv4ri4";
         libName = "pin_project";
         dependencies = [
           {
@@ -3322,9 +3293,9 @@ rec {
       };
       "pin-project-internal" = rec {
         crateName = "pin-project-internal";
-        version = "1.1.11";
+        version = "1.1.13";
         edition = "2021";
-        sha256 = "1ik4mpb92da75inmjvxf2qm61vrnwml3x24wddvrjlqh1z9hxcnr";
+        sha256 = "12rzlh07i1sdgrvzj6wgkka5bjqyvbfsl8knq6qi7g16m7q9aqy9";
         procMacro = true;
         libName = "pin_project_internal";
         dependencies = [
@@ -3646,9 +3617,9 @@ rec {
       };
       "rustls" = rec {
         crateName = "rustls";
-        version = "0.23.38";
+        version = "0.23.40";
         edition = "2021";
-        sha256 = "089ssmhd79f0kd22brh6lkaadql2p3pi6579ax1s0kn1n9pldyb9";
+        sha256 = "12qnv3ag4wrw7aj8jng74kgrilpjm2b1rfcjaac8h691frccv1pg";
         dependencies = [
           {
             name = "log";
@@ -3746,9 +3717,9 @@ rec {
       };
       "rustls-pki-types" = rec {
         crateName = "rustls-pki-types";
-        version = "1.14.0";
+        version = "1.14.1";
         edition = "2021";
-        sha256 = "1p9zsgslvwzzkzhm6bqicffqndr4jpx67992b0vl0pi21a5hy15y";
+        sha256 = "1a9pr54y0f3qr97bxpd3ahjldq0gqdld0h799xbnwdzbwxx1k9rh";
         libName = "rustls_pki_types";
         dependencies = [
           {
@@ -3768,9 +3739,9 @@ rec {
       };
       "rustls-webpki" = rec {
         crateName = "rustls-webpki";
-        version = "0.103.12";
+        version = "0.103.13";
         edition = "2021";
-        sha256 = "01nxzkfd1l96jzp04svc7iznlkarzx3wb9p63a0i17rc4y2vnyc2";
+        sha256 = "0vkm7z9pnxz5qz66p2kmyy2pwx0g4jnsbqk5xzfhs4czcjl2ki31";
         libName = "webpki";
         dependencies = [
           {
@@ -3979,7 +3950,7 @@ rec {
           "std" = [ "serde_core/std" ];
           "unstable" = [ "serde_core/unstable" ];
         };
-        resolvedDefaultFeatures = [ "alloc" "default" "derive" "serde_derive" "std" ];
+        resolvedDefaultFeatures = [ "default" "derive" "serde_derive" "std" ];
       };
       "serde_core" = rec {
         crateName = "serde_core";
@@ -4044,9 +4015,9 @@ rec {
       };
       "serde_json" = rec {
         crateName = "serde_json";
-        version = "1.0.149";
+        version = "1.0.150";
         edition = "2021";
-        sha256 = "11jdx4vilzrjjd1dpgy67x5lgzr0laplz30dhv75lnf5ffa07z43";
+        sha256 = "1ffgfhy9kndjnrz8lmy95pr758p2zk8dxv6yi99x0vkkni24w0g8";
         authors = [
           "Erick Tryzelaar <erick.tryzelaar@gmail.com>"
           "David Tolnay <dtolnay@gmail.com>"
@@ -4760,9 +4731,9 @@ rec {
       };
       "tokio" = rec {
         crateName = "tokio";
-        version = "1.52.1";
+        version = "1.52.3";
         edition = "2021";
-        sha256 = "1imw1dkkv38p66i33m5hsyk3d6prsbyrayjvqhndjvz89ybywzdn";
+        sha256 = "1zpzazypkg61sw91na1m85x5s4rsjym335fwwhwm1hcs70dz1iwg";
         authors = [
           "Tokio Contributors <team@tokio.rs>"
         ];
@@ -5109,9 +5080,9 @@ rec {
       };
       "tower-http" = rec {
         crateName = "tower-http";
-        version = "0.6.8";
+        version = "0.6.11";
         edition = "2018";
-        sha256 = "1y514jwzbyrmrkbaajpwmss4rg0mak82k16d6588w9ncaffmbrnl";
+        sha256 = "0h08wjgs3hwnq11iwwzlmnabn1h4cl0fzd48svaccvqffkiggz2c";
         libName = "tower_http";
         authors = [
           "Tower Maintainers <team@tower-rs.com>"
@@ -5141,11 +5112,6 @@ rec {
             optional = true;
           }
           {
-            name = "iri-string";
-            packageId = "iri-string";
-            optional = true;
-          }
-          {
             name = "pin-project-lite";
             packageId = "pin-project-lite";
           }
@@ -5168,6 +5134,11 @@ rec {
             optional = true;
             usesDefaultFeatures = false;
           }
+          {
+            name = "url";
+            packageId = "url";
+            optional = true;
+          }
         ];
         devDependencies = [
           {
@@ -5189,35 +5160,33 @@ rec {
           }
         ];
         features = {
-          "async-compression" = [ "dep:async-compression" ];
           "auth" = [ "base64" "validate-request" ];
           "base64" = [ "dep:base64" ];
           "catch-panic" = [ "tracing" "futures-util/std" "dep:http-body" "dep:http-body-util" ];
-          "compression-br" = [ "async-compression/brotli" "futures-core" "dep:http-body" "tokio-util" "tokio" ];
-          "compression-deflate" = [ "async-compression/zlib" "futures-core" "dep:http-body" "tokio-util" "tokio" ];
+          "compression-br" = [ "dep:async-compression" "async-compression?/brotli" "futures-core" "dep:http-body" "tokio-util" "dep:tokio" ];
+          "compression-deflate" = [ "dep:async-compression" "async-compression?/zlib" "futures-core" "dep:http-body" "tokio-util" "dep:tokio" ];
           "compression-full" = [ "compression-br" "compression-deflate" "compression-gzip" "compression-zstd" ];
-          "compression-gzip" = [ "async-compression/gzip" "futures-core" "dep:http-body" "tokio-util" "tokio" ];
-          "compression-zstd" = [ "async-compression/zstd" "futures-core" "dep:http-body" "tokio-util" "tokio" ];
-          "decompression-br" = [ "async-compression/brotli" "futures-core" "dep:http-body" "dep:http-body-util" "tokio-util" "tokio" ];
-          "decompression-deflate" = [ "async-compression/zlib" "futures-core" "dep:http-body" "dep:http-body-util" "tokio-util" "tokio" ];
+          "compression-gzip" = [ "dep:async-compression" "async-compression?/gzip" "futures-core" "dep:http-body" "tokio-util" "dep:tokio" ];
+          "compression-zstd" = [ "dep:async-compression" "async-compression?/zstd" "futures-core" "dep:http-body" "tokio-util" "dep:tokio" ];
+          "decompression-br" = [ "dep:async-compression" "async-compression?/brotli" "futures-core" "dep:http-body" "dep:http-body-util" "tokio-util" "dep:tokio" ];
+          "decompression-deflate" = [ "dep:async-compression" "async-compression?/zlib" "futures-core" "dep:http-body" "dep:http-body-util" "tokio-util" "dep:tokio" ];
           "decompression-full" = [ "decompression-br" "decompression-deflate" "decompression-gzip" "decompression-zstd" ];
-          "decompression-gzip" = [ "async-compression/gzip" "futures-core" "dep:http-body" "dep:http-body-util" "tokio-util" "tokio" ];
-          "decompression-zstd" = [ "async-compression/zstd" "futures-core" "dep:http-body" "dep:http-body-util" "tokio-util" "tokio" ];
-          "follow-redirect" = [ "futures-util" "dep:http-body" "iri-string" "tower/util" ];
-          "fs" = [ "futures-core" "futures-util" "dep:http-body" "dep:http-body-util" "tokio/fs" "tokio-util/io" "tokio/io-util" "dep:http-range-header" "mime_guess" "mime" "percent-encoding" "httpdate" "set-status" "futures-util/alloc" "tracing" ];
-          "full" = [ "add-extension" "auth" "catch-panic" "compression-full" "cors" "decompression-full" "follow-redirect" "fs" "limit" "map-request-body" "map-response-body" "metrics" "normalize-path" "propagate-header" "redirect" "request-id" "sensitive-headers" "set-header" "set-status" "timeout" "trace" "util" "validate-request" ];
+          "decompression-gzip" = [ "dep:async-compression" "async-compression?/gzip" "futures-core" "dep:http-body" "dep:http-body-util" "tokio-util" "dep:tokio" ];
+          "decompression-zstd" = [ "dep:async-compression" "async-compression?/zstd" "futures-core" "dep:http-body" "dep:http-body-util" "tokio-util" "dep:tokio" ];
+          "follow-redirect" = [ "futures-util" "dep:http-body" "dep:url" "tower/util" ];
+          "fs" = [ "dep:tokio" "tokio?/fs" "tokio?/io-util" "futures-core" "futures-util" "dep:http-body" "dep:http-body-util" "tokio-util/io" "dep:http-range-header" "mime_guess" "mime" "percent-encoding" "httpdate" "set-status" "futures-util/alloc" ];
+          "full" = [ "add-extension" "auth" "catch-panic" "compression-full" "cors" "decompression-full" "follow-redirect" "fs" "limit" "map-request-body" "map-response-body" "metrics" "normalize-path" "on-early-drop" "propagate-header" "redirect" "request-id" "sensitive-headers" "set-header" "set-status" "timeout" "trace" "util" "validate-request" ];
           "futures-core" = [ "dep:futures-core" ];
           "futures-util" = [ "dep:futures-util" ];
           "httpdate" = [ "dep:httpdate" ];
-          "iri-string" = [ "dep:iri-string" ];
           "limit" = [ "dep:http-body" "dep:http-body-util" ];
-          "metrics" = [ "dep:http-body" "tokio/time" ];
+          "metrics" = [ "dep:http-body" "dep:tokio" "tokio?/time" ];
           "mime" = [ "dep:mime" ];
           "mime_guess" = [ "dep:mime_guess" ];
+          "on-early-drop" = [ "dep:http-body" ];
           "percent-encoding" = [ "dep:percent-encoding" ];
           "request-id" = [ "uuid" ];
-          "timeout" = [ "dep:http-body" "tokio/time" ];
-          "tokio" = [ "dep:tokio" ];
+          "timeout" = [ "dep:http-body" "dep:tokio" "tokio?/time" ];
           "tokio-util" = [ "dep:tokio-util" ];
           "tower" = [ "dep:tower" ];
           "trace" = [ "dep:http-body" "tracing" ];
@@ -5226,7 +5195,7 @@ rec {
           "uuid" = [ "dep:uuid" ];
           "validate-request" = [ "mime" ];
         };
-        resolvedDefaultFeatures = [ "cors" "default" "follow-redirect" "futures-util" "iri-string" "map-response-body" "tower" "trace" "tracing" ];
+        resolvedDefaultFeatures = [ "cors" "default" "follow-redirect" "futures-util" "map-response-body" "tower" "trace" "tracing" ];
       };
       "tower-layer" = rec {
         crateName = "tower-layer";
@@ -5723,9 +5692,9 @@ rec {
       };
       "wasm-bindgen" = rec {
         crateName = "wasm-bindgen";
-        version = "0.2.118";
+        version = "0.2.122";
         edition = "2021";
-        sha256 = "129s5r14fx4v4xrzpx2c6l860nkxpl48j50y7kl6j16bpah3iy8b";
+        sha256 = "02flix96brsb2r1i3grnikii302iqpdm337kl3xv5lklz5v4bl1y";
         libName = "wasm_bindgen";
         authors = [
           "The wasm-bindgen Developers"
@@ -5774,9 +5743,9 @@ rec {
       };
       "wasm-bindgen-macro" = rec {
         crateName = "wasm-bindgen-macro";
-        version = "0.2.118";
+        version = "0.2.122";
         edition = "2021";
-        sha256 = "1v98r8vs17cj8918qsg0xx4nlg4nxk1g0jd4nwnyrh1687w29zzf";
+        sha256 = "1inyl55bvdifx7l60q9wl0ivmw7236jg7jqmcqpxhsx3knq52qci";
         procMacro = true;
         libName = "wasm_bindgen_macro";
         authors = [
@@ -5798,9 +5767,9 @@ rec {
       };
       "wasm-bindgen-macro-support" = rec {
         crateName = "wasm-bindgen-macro-support";
-        version = "0.2.118";
+        version = "0.2.122";
         edition = "2021";
-        sha256 = "0169jr0q469hfx5zqxfyywf2h2f4aj17vn4zly02nfwqmxghc24x";
+        sha256 = "0pjw5kc2mbfz59agk5l21kh4hxzp94rygdvsnr4f3z6b5hv4g419";
         libName = "wasm_bindgen_macro_support";
         authors = [
           "The wasm-bindgen Developers"
@@ -5834,10 +5803,10 @@ rec {
       };
       "wasm-bindgen-shared" = rec {
         crateName = "wasm-bindgen-shared";
-        version = "0.2.118";
+        version = "0.2.122";
         edition = "2021";
         links = "wasm_bindgen";
-        sha256 = "0ag1vvdzi4334jlzilsy14y3nyzwddf1ndn62fyhf6bg62g4vl2z";
+        sha256 = "0ds4mmfqvxwc5fp33hn0jblf0f6b4lghrd9mpkls66zic4n9p4ls";
         libName = "wasm_bindgen_shared";
         authors = [
           "The wasm-bindgen Developers"
@@ -6741,11 +6710,11 @@ rec {
       };
       "zerofrom" = rec {
         crateName = "zerofrom";
-        version = "0.1.7";
+        version = "0.1.8";
         edition = "2021";
-        sha256 = "1py40in4rirc9q8w36q67pld0zk8ssg024xhh0cncxgal7ra3yk9";
+        sha256 = "0wjjdj7gdmd0iq91gzkxl7dlv0nhkk80l4bmdpzh3a1yh48mmh0f";
         authors = [
-          "Manish Goregaokar <manishsmail@gmail.com>"
+          "The ICU4X Project Developers"
         ];
         dependencies = [
           {
