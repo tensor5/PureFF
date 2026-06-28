@@ -48,7 +48,7 @@
             created = "${year}-${month}-${day}T${hour}:${minute}:${second}Z";
           in
             nix2containerPkgs.nix2container.buildImage {
-              name = "pureff";
+              name = "ghcr.io/tensor5/${cargoToml.package.name}";
               config = {
                 Entrypoint = [(pkgs.lib.getExe package)];
                 Env = [
