@@ -1,0 +1,7 @@
+/target
+
+/.direnv
+/.env
+/result
+
+/*.pem
