@@ -2738,9 +2738,9 @@ rec {
       };
       "num-bigint" = rec {
         crateName = "num-bigint";
-        version = "0.4.6";
+        version = "0.4.7";
         edition = "2021";
-        sha256 = "1f903zd33i6hkjpsgwhqwi2wffnvkxbn6rv4mkgcjcqi7xr4zr55";
+        sha256 = "1rmvbmc7pp7viwixccimxn3sw96nwkqm042ylydwkybvbsmyjqy8";
         libName = "num_bigint";
         authors = [
           "The Rust Project Developers"
@@ -4575,9 +4575,9 @@ rec {
       };
       "time" = rec {
         crateName = "time";
-        version = "0.3.52";
+        version = "0.3.53";
         edition = "2024";
-        sha256 = "047240m8rz93qaarqdw236zx9g2p8nmdrcqhz4avc4ak85xxnj0f";
+        sha256 = "0l4aans0kv47y53736cjs0pnvdz91iyywrkqbrxk6cmrvknsmpqq";
         authors = [
           "Jacob Pratt <open-source@jhpratt.dev>"
           "Time contributors"
