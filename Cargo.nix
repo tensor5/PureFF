@@ -550,9 +550,9 @@ rec {
       };
       "bytes" = rec {
         crateName = "bytes";
-        version = "1.12.0";
+        version = "1.12.1";
         edition = "2021";
-        sha256 = "14xmxm8imyvw675bsgyadmzm9k63js1sdqh7099p0hlj2p9zbqwa";
+        sha256 = "017z19dpg4f942h051m7bpnzcgng042hhcpd7bmg7bjjqd42lrgw";
         authors = [
           "Carl Lerche <me@carllerche.com>"
           "Sean McArthur <sean@seanmonstar.com>"
@@ -2601,9 +2601,9 @@ rec {
       };
       "memchr" = rec {
         crateName = "memchr";
-        version = "2.8.2";
+        version = "2.8.3";
         edition = "2021";
-        sha256 = "1i33wr49pcz2sbd12nds3n9fszay8kq5bk78gwciz462mcs49448";
+        sha256 = "161xa63ipfanf8v3nb82xd5hqgydv55nzw59wyngqbz6alfaz2yg";
         authors = [
           "Andrew Gallant <jamslam@gmail.com>"
           "bluss"
@@ -3761,9 +3761,9 @@ rec {
       };
       "rustversion" = rec {
         crateName = "rustversion";
-        version = "1.0.22";
+        version = "1.0.23";
         edition = "2018";
-        sha256 = "0vfl70jhv72scd9rfqgr2n11m5i9l1acnk684m2w83w0zbqdx75k";
+        sha256 = "07z2a843fs80fawwflj9jwn49k9b0bd0dhhbvy0ar69vaxd72m6g";
         procMacro = true;
         build = "build/build.rs";
         authors = [
