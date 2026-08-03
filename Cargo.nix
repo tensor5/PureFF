@@ -915,9 +915,9 @@ rec {
       };
       "displaydoc" = rec {
         crateName = "displaydoc";
-        version = "0.2.6";
+        version = "0.2.7";
         edition = "2021";
-        sha256 = "0kyxwfbdmagd8afzb2pzja7wj8dhah7smxdsgw00iq8pa2jhmiqs";
+        sha256 = "1a42mwpgpwcqq2qqgkcc630wvsc2p2dkmgacjnclginwfz9js8y6";
         procMacro = true;
         authors = [
           "Jane Lusby <jlusby@yaah.dev>"
@@ -933,7 +933,7 @@ rec {
           }
           {
             name = "syn";
-            packageId = "syn 2.0.119";
+            packageId = "syn 3.0.3";
           }
         ];
         features = {
@@ -1451,9 +1451,9 @@ rec {
       };
       "http" = rec {
         crateName = "http";
-        version = "1.4.2";
+        version = "1.5.0";
         edition = "2021";
-        sha256 = "09b4p8fiivkg7wm0b59fyrn1jkm7px298ci7zb9igz6n647gaw39";
+        sha256 = "1q4wpz5hb4cf37g3jrdyffrpa6ngidmd9wrfph92fddzprl3b3ci";
         authors = [
           "Alex Crichton <alex@alexcrichton.com>"
           "Carl Lerche <me@carllerche.com>"
@@ -3604,9 +3604,9 @@ rec {
       };
       "rustls" = rec {
         crateName = "rustls";
-        version = "0.23.42";
+        version = "0.23.43";
         edition = "2021";
-        sha256 = "0f619dq1izpl40glcqgfjbqzpmwg8g5iffjx4429sh4v06mzqm1w";
+        sha256 = "01nsagj78r88pifaz55ln1rw31py5n00h7bnw58h3g1aw1n3i0q2";
         dependencies = [
           {
             name = "log";
@@ -4608,9 +4608,9 @@ rec {
       };
       "time" = rec {
         crateName = "time";
-        version = "0.3.54";
+        version = "0.3.55";
         edition = "2024";
-        sha256 = "0i12170vw516jprmbv385krw75nyn7kwfp48nqybgfpnkximw79y";
+        sha256 = "0d6iyws47z50zlksf5m3cflxvjrcgfhjglhn112gmpahxjappf6d";
         authors = [
           "Jacob Pratt <open-source@jhpratt.dev>"
           "Time contributors"
@@ -4867,9 +4867,9 @@ rec {
       };
       "tokio-macros" = rec {
         crateName = "tokio-macros";
-        version = "2.7.1";
+        version = "2.7.2";
         edition = "2021";
-        sha256 = "1fj2h3gysqzwqchyhcyyvslwdj7qjgyzlc20d6sajwqf949sya33";
+        sha256 = "03kvy2r5gr4zccm4vdx8vvv3q69kbjc1b006rs11aibz74m3lxvq";
         procMacro = true;
         libName = "tokio_macros";
         authors = [
@@ -4886,7 +4886,7 @@ rec {
           }
           {
             name = "syn";
-            packageId = "syn 2.0.119";
+            packageId = "syn 3.0.3";
             features = [ "full" ];
           }
         ];
