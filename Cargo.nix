@@ -566,9 +566,9 @@ rec {
       };
       "cc" = rec {
         crateName = "cc";
-        version = "1.4.7";
+        version = "1.5.1";
         edition = "2021";
-        sha256 = "04z3q2wqsg4qgx4vsqsd01s27svz0bgdymjiyccgbnn24gg3whal";
+        sha256 = "0h70pg4050i16fp5v62wqxj0h8ajzvagrwz7bvdj33pfji8i8q7k";
         dependencies = [
           {
             name = "find-msvc-tools";
@@ -1013,9 +1013,9 @@ rec {
       };
       "find-msvc-tools" = rec {
         crateName = "find-msvc-tools";
-        version = "0.1.13";
+        version = "0.1.14";
         edition = "2021";
-        sha256 = "16ykhz2icc0xx8i3vr8fpp6h3djpik2zw5bcxbff9bxba5g909gg";
+        sha256 = "112ljldlv150fpl8xr2jl5czg51k3kdfn6cy5fqdsvkl14sgpp5f";
         libName = "find_msvc_tools";
 
       };
@@ -1798,9 +1798,9 @@ rec {
       };
       "hyper-util" = rec {
         crateName = "hyper-util";
-        version = "0.1.20";
-        edition = "2021";
-        sha256 = "186zdc58hmm663csmjvrzgkr6jdh93sfmi3q2pxi57gcaqjpqm4n";
+        version = "0.1.21";
+        edition = "2024";
+        sha256 = "1zwbrhqr9js6r7db3zd8bsmm6ys1i0abgkc7lyw2d4jgd2b3vh6x";
         libName = "hyper_util";
         authors = [
           "Sean McArthur <sean@seanmonstar.com>"
@@ -1828,6 +1828,11 @@ rec {
           {
             name = "http-body";
             packageId = "http-body";
+          }
+          {
+            name = "httparse";
+            packageId = "httparse";
+            optional = true;
           }
           {
             name = "hyper";
@@ -1886,18 +1891,19 @@ rec {
           {
             name = "tokio";
             packageId = "tokio";
-            features = [ "macros" "test-util" "signal" ];
+            features = [ "macros" "test-util" "signal" "net" "io-util" ];
           }
         ];
         features = {
-          "client" = [ "hyper/client" "tokio/net" "dep:tracing" "dep:futures-channel" "dep:tower-service" ];
-          "client-legacy" = [ "client" "dep:socket2" "tokio/sync" "dep:libc" "dep:futures-util" ];
-          "client-pool" = [ "client" "dep:futures-util" "dep:tower-layer" ];
+          "client" = [ "hyper/client" "dep:tracing" "dep:futures-channel" "dep:tower-service" ];
+          "client-legacy" = [ "client" "tokio/net" "dep:socket2" "tokio/sync" "dep:libc" "dep:futures-util" "dep:httparse" ];
+          "client-pool" = [ "client" "dep:futures-util" "dep:tower-layer" "tokio/sync" ];
           "client-proxy" = [ "client" "dep:base64" "dep:ipnet" "dep:percent-encoding" ];
           "client-proxy-system" = [ "dep:system-configuration" "dep:windows-registry" ];
           "full" = [ "client" "client-legacy" "client-pool" "client-proxy" "client-proxy-system" "server" "server-auto" "server-graceful" "service" "http1" "http2" "tokio" "tracing" ];
           "http1" = [ "hyper/http1" ];
           "http2" = [ "hyper/http2" ];
+          "rt-tracing-exec-force" = [ "tokio" "tracing" ];
           "server" = [ "hyper/server" ];
           "server-auto" = [ "server" "http1" "http2" ];
           "server-graceful" = [ "server" "tokio/sync" ];
@@ -2345,9 +2351,9 @@ rec {
       };
       "js-sys" = rec {
         crateName = "js-sys";
-        version = "0.3.105";
+        version = "0.3.106";
         edition = "2021";
-        sha256 = "17pr58p55pxbflkjl2wz6pyz854j80nlgavjq4mcwr583q6x4myf";
+        sha256 = "1icwmpjw54lb7vg5926k5y4y5jbiih0zxhwgjwnzn475v90xk0vq";
         libName = "js_sys";
         authors = [
           "The wasm-bindgen Developers"
@@ -4301,9 +4307,9 @@ rec {
       };
       "smallvec" = rec {
         crateName = "smallvec";
-        version = "1.16.1";
+        version = "1.16.2";
         edition = "2018";
-        sha256 = "14gqvsqdli51r1bii3hfqv5vx1b9r0gic4br0x9fsixmy5b70ims";
+        sha256 = "13iai5hhwyp8z0pbn8r11q4j5956jaxhcbvvf2drm17f1q7myfgr";
         authors = [
           "The Servo Project Developers"
         ];
@@ -4549,9 +4555,9 @@ rec {
       };
       "thiserror" = rec {
         crateName = "thiserror";
-        version = "2.0.20";
+        version = "2.0.21";
         edition = "2021";
-        sha256 = "0kxs6p295jffxhzaxpxv1dwaaf5iqlm6sx8h0djp6ancbxgj71pc";
+        sha256 = "17hq1lh5dyr3bkc7zzjrbrp4qgkvhc48kgq1n5fdxkindaw2rr89";
         authors = [
           "David Tolnay <dtolnay@gmail.com>"
         ];
@@ -4568,9 +4574,9 @@ rec {
       };
       "thiserror-impl" = rec {
         crateName = "thiserror-impl";
-        version = "2.0.20";
+        version = "2.0.21";
         edition = "2021";
-        sha256 = "1bwjc94gi0xn5jz26h1a8bjj1wdkvvr6jifamyc4mp9n28zcs15w";
+        sha256 = "0945n8agp7kg6n6b35yyjb4g5xv2q22vrw15h6jj1nw76a99flgy";
         procMacro = true;
         libName = "thiserror_impl";
         authors = [
@@ -5708,9 +5714,9 @@ rec {
       };
       "wasm-bindgen" = rec {
         crateName = "wasm-bindgen";
-        version = "0.2.128";
+        version = "0.2.129";
         edition = "2021";
-        sha256 = "1gsi4ggm03dqr3j9bcc1sbxzmkw6ykm3cqx4g8xmw31v7niqgjxf";
+        sha256 = "02flhqld01jqb6vbfyx1gb8s78g1pnq2164daxad93y6mhrlzdcv";
         libName = "wasm_bindgen";
         authors = [
           "The wasm-bindgen Developers"
@@ -5741,12 +5747,6 @@ rec {
             rename = "rustversion-compat";
           }
         ];
-        devDependencies = [
-          {
-            name = "once_cell";
-            packageId = "once_cell";
-          }
-        ];
         features = {
           "default" = [ "std" ];
           "enable-interning" = [ "std" ];
@@ -5759,9 +5759,9 @@ rec {
       };
       "wasm-bindgen-macro" = rec {
         crateName = "wasm-bindgen-macro";
-        version = "0.2.128";
+        version = "0.2.129";
         edition = "2021";
-        sha256 = "1vdrjrb7yqh8p0r0yr93rlaq9iq05hy1wl9kbsjv7a61wc8xb456";
+        sha256 = "0dc5xq09sy1v9ns1fhb0cnyqz5p1wcjjvkdmxskj9qhnbg1x0a9f";
         procMacro = true;
         libName = "wasm_bindgen_macro";
         authors = [
@@ -5783,9 +5783,9 @@ rec {
       };
       "wasm-bindgen-macro-support" = rec {
         crateName = "wasm-bindgen-macro-support";
-        version = "0.2.128";
+        version = "0.2.129";
         edition = "2021";
-        sha256 = "12p4jm9dr88h1j5sglycizvvxvr05pgmz7aa2v9g47h7y23lh7j1";
+        sha256 = "1dx6w90f14avmhri7ss9lyz03060g6475r4axy3bm7biqf5ill3g";
         libName = "wasm_bindgen_macro_support";
         authors = [
           "The wasm-bindgen Developers"
@@ -5819,10 +5819,10 @@ rec {
       };
       "wasm-bindgen-shared" = rec {
         crateName = "wasm-bindgen-shared";
-        version = "0.2.128";
+        version = "0.2.129";
         edition = "2021";
         links = "wasm_bindgen";
-        sha256 = "0ghh8hqx038h9c9zj1rlmzlv2k2shh917q756dn054hcipbir541";
+        sha256 = "1ilmp5d3sl8lrq9djhcs90gk66yvk8mgwk4sfrvpvkd75b2wkw13";
         libName = "wasm_bindgen_shared";
         authors = [
           "The wasm-bindgen Developers"
