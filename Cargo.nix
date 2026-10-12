@@ -187,7 +187,7 @@ rec {
           }
           {
             name = "syn";
-            packageId = "syn 3.0.6";
+            packageId = "syn 3.0.8";
             usesDefaultFeatures = false;
             features = [ "clone-impls" "full" "parsing" "printing" "proc-macro" "visit-mut" ];
           }
@@ -566,9 +566,9 @@ rec {
       };
       "cc" = rec {
         crateName = "cc";
-        version = "1.6.0";
+        version = "1.8.0";
         edition = "2021";
-        sha256 = "0c3n82hdi355xa6z9x4zgnpjwsh1szkkcs0zl8q8nl5ggk874j7p";
+        sha256 = "0f6q6vc8fj6xn4j1wd4yakiza6lhgwai49gp1zdwgzggh3nwjlb6";
         dependencies = [
           {
             name = "find-msvc-tools";
@@ -930,7 +930,7 @@ rec {
           }
           {
             name = "syn";
-            packageId = "syn 3.0.6";
+            packageId = "syn 3.0.8";
           }
         ];
         features = {
@@ -960,9 +960,9 @@ rec {
       };
       "either" = rec {
         crateName = "either";
-        version = "1.18.0";
+        version = "1.19.0";
         edition = "2021";
-        sha256 = "0d7dx31sf8rakcgp63070ngb2vkjynrni866pnx879pawndgnai5";
+        sha256 = "1gjq21g0sgk5ylpj85zafcinwhh3jj91i6drhb4278vw2v17370f";
         features = {
           "default" = [ "std" ];
           "serde" = [ "dep:serde" ];
@@ -1203,7 +1203,7 @@ rec {
           }
           {
             name = "syn";
-            packageId = "syn 3.0.6";
+            packageId = "syn 3.0.8";
             features = [ "full" ];
           }
         ];
@@ -1559,9 +1559,9 @@ rec {
       };
       "hyper" = rec {
         crateName = "hyper";
-        version = "1.11.1";
+        version = "1.12.0";
         edition = "2021";
-        sha256 = "0hxyikj5livhmw5q3x3ifyhphh1g2cjsc32nsg1jcyhflpx03d97";
+        sha256 = "173wg6msakx4lha6hxm9z0i1h3bw34q8fk0x57b7flf9li6k4gic";
         authors = [
           "Sean McArthur <sean@seanmonstar.com>"
         ];
@@ -1574,11 +1574,6 @@ rec {
           {
             name = "bytes";
             packageId = "bytes";
-          }
-          {
-            name = "futures-channel";
-            packageId = "futures-channel";
-            optional = true;
           }
           {
             name = "futures-core";
@@ -1632,11 +1627,6 @@ rec {
         ];
         devDependencies = [
           {
-            name = "futures-channel";
-            packageId = "futures-channel";
-            features = [ "sink" ];
-          }
-          {
             name = "pin-project-lite";
             packageId = "pin-project-lite";
           }
@@ -1650,7 +1640,7 @@ rec {
           "client" = [ "dep:want" "dep:pin-project-lite" "dep:smallvec" ];
           "ffi" = [ "dep:http-body-util" "dep:futures-util" ];
           "full" = [ "client" "http1" "http2" "server" ];
-          "http1" = [ "dep:atomic-waker" "dep:futures-channel" "dep:futures-core" "dep:httparse" "dep:itoa" ];
+          "http1" = [ "dep:atomic-waker" "dep:futures-core" "dep:httparse" "dep:itoa" ];
           "http2" = [ "dep:atomic-waker" "dep:futures-channel" "dep:futures-core" "dep:h2" ];
           "server" = [ "dep:httpdate" "dep:pin-project-lite" "dep:smallvec" ];
           "tracing" = [ "dep:tracing" ];
@@ -3348,9 +3338,9 @@ rec {
       };
       "powerfmt" = rec {
         crateName = "powerfmt";
-        version = "0.2.0";
+        version = "0.2.1";
         edition = "2021";
-        sha256 = "14ckj2xdpkhv3h6l5sdmb9f1d57z8hbfpdldjc2vl5givq2y77j3";
+        sha256 = "0n293rvnpisjmxdqhq6zmrvcdql7j1c4zrcy5053vrv5x6wr8qsa";
         authors = [
           "Jacob Pratt <jacob@jhpratt.dev>"
         ];
@@ -4000,7 +3990,7 @@ rec {
           }
           {
             name = "syn";
-            packageId = "syn 3.0.6";
+            packageId = "syn 3.0.8";
             usesDefaultFeatures = false;
             features = [ "clone-impls" "derive" "parsing" "printing" "proc-macro" ];
           }
@@ -4011,13 +4001,9 @@ rec {
       };
       "serde_json" = rec {
         crateName = "serde_json";
-        version = "1.0.151";
+        version = "1.0.154";
         edition = "2021";
-        sha256 = "051zww7lvpw147vvwss1ng6w587qyrkzg75fvj08q2dfrmgbahf8";
-        authors = [
-          "Erick Tryzelaar <erick.tryzelaar@gmail.com>"
-          "David Tolnay <dtolnay@gmail.com>"
-        ];
+        sha256 = "1mjby21g8fxhrsfp73yz8wg6n2f4h23ah0nczds409l53f5wrsg7";
         dependencies = [
           {
             name = "itoa";
@@ -4055,7 +4041,7 @@ rec {
           "alloc" = [ "serde_core/alloc" ];
           "default" = [ "std" ];
           "indexmap" = [ "dep:indexmap" ];
-          "preserve_order" = [ "indexmap" "std" ];
+          "preserve_order" = [ "indexmap" "alloc" "dep:foldhash" ];
           "std" = [ "memchr/std" "serde_core/std" ];
         };
         resolvedDefaultFeatures = [ "default" "raw_value" "std" ];
@@ -4307,9 +4293,9 @@ rec {
       };
       "smallvec" = rec {
         crateName = "smallvec";
-        version = "1.16.2";
+        version = "1.16.3";
         edition = "2018";
-        sha256 = "13iai5hhwyp8z0pbn8r11q4j5956jaxhcbvvf2drm17f1q7myfgr";
+        sha256 = "06z0akmcq2zc9qg22dxda298p50gg3di5ggl3y2nllag8ypwhgav";
         authors = [
           "The Servo Project Developers"
         ];
@@ -4475,11 +4461,11 @@ rec {
         };
         resolvedDefaultFeatures = [ "clone-impls" "default" "derive" "extra-traits" "full" "parsing" "printing" "proc-macro" "visit-mut" ];
       };
-      "syn 3.0.6" = rec {
+      "syn 3.0.8" = rec {
         crateName = "syn";
-        version = "3.0.6";
+        version = "3.0.8";
         edition = "2021";
-        sha256 = "1vmw7s58rzrs926nv5m06x7qbgswm1aa9iw3s1bj5var47kyi4w5";
+        sha256 = "08n64gc43mrcq1b8il3dcj6vlcawkwq9dxr44vqpx3ydffins081";
         authors = [
           "David Tolnay <dtolnay@gmail.com>"
         ];
@@ -4542,7 +4528,7 @@ rec {
           }
           {
             name = "syn";
-            packageId = "syn 3.0.6";
+            packageId = "syn 3.0.8";
             usesDefaultFeatures = false;
             features = [ "derive" "parsing" "printing" "clone-impls" "visit" "extra-traits" ];
           }
@@ -4593,7 +4579,7 @@ rec {
           }
           {
             name = "syn";
-            packageId = "syn 3.0.6";
+            packageId = "syn 3.0.8";
           }
         ];
 
@@ -4895,7 +4881,7 @@ rec {
           }
           {
             name = "syn";
-            packageId = "syn 3.0.6";
+            packageId = "syn 3.0.8";
             features = [ "full" ];
           }
         ];
@@ -4941,9 +4927,9 @@ rec {
       };
       "tokio-util" = rec {
         crateName = "tokio-util";
-        version = "0.7.19";
+        version = "0.7.20";
         edition = "2021";
-        sha256 = "0licqrhrawysjrsr0qw3cgzkkjph7090hlcqcm45aazmkg81aj29";
+        sha256 = "0jwagxx9vr940rlxjh0y7zimd2cbxqbjym5nz73byvm93d2wyr74";
         libName = "tokio_util";
         authors = [
           "Tokio Contributors <team@tokio.rs>"
@@ -5682,9 +5668,9 @@ rec {
       };
       "want" = rec {
         crateName = "want";
-        version = "0.3.1";
+        version = "0.3.2";
         edition = "2018";
-        sha256 = "03hbfrnvqqdchb5kgxyavb9jabwza0dmh2vw5kg0dq8rxl57d9xz";
+        sha256 = "02zdlaqarwm9x3z1l0vm61mv8f6mv0kp4izgnxlfibqhv46xsk7c";
         authors = [
           "Sean McArthur <sean@seanmonstar.com>"
         ];
@@ -5805,7 +5791,7 @@ rec {
           }
           {
             name = "syn";
-            packageId = "syn 3.0.6";
+            packageId = "syn 3.0.8";
             features = [ "visit" "visit-mut" "full" "extra-traits" ];
           }
           {
@@ -6714,7 +6700,7 @@ rec {
           }
           {
             name = "syn";
-            packageId = "syn 3.0.6";
+            packageId = "syn 3.0.8";
             features = [ "fold" "visit" ];
           }
           {
@@ -6767,7 +6753,7 @@ rec {
           }
           {
             name = "syn";
-            packageId = "syn 3.0.6";
+            packageId = "syn 3.0.8";
             features = [ "fold" "visit" ];
           }
           {
@@ -6779,9 +6765,9 @@ rec {
       };
       "zeroize" = rec {
         crateName = "zeroize";
-        version = "1.9.0";
+        version = "1.9.1";
         edition = "2024";
-        sha256 = "0kpnij2v1ig6g2mhc0bnci0lrdfdhiq40afbc0fahajqc9jiag71";
+        sha256 = "0yb8iykihpl3hfw5c4silw2lklpfxajkaa9yj1qw6jsy5hwq8c71";
         authors = [
           "The RustCrypto Project Developers"
         ];
@@ -6901,7 +6887,7 @@ rec {
           }
           {
             name = "syn";
-            packageId = "syn 3.0.6";
+            packageId = "syn 3.0.8";
             features = [ "extra-traits" ];
           }
         ];
