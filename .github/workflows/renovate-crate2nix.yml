@@ -38,7 +38,7 @@ jobs:
           git config user.name '${{ steps.app-token.outputs.app-slug }}[bot]'
           git config user.email '${{ steps.get-user-id.outputs.user-id }}+${{ steps.app-token.outputs.app-slug }}[bot]@users.noreply.github.com'
 
-      - uses: cachix/install-nix-action@448cde739abec1eaf0646249e3d25bb8d9bc7702 # v31
+      - uses: cachix/install-nix-action@75c75c31ebece974e48ebc36b4ad125bd97bd97b # v31
 
       - name: Regenerate Cargo.nix
         run: nix develop --command crate2nix generate
