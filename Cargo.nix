@@ -677,9 +677,9 @@ rec {
       };
       "const_format" = rec {
         crateName = "const_format";
-        version = "0.2.36";
+        version = "0.2.37";
         edition = "2021";
-        sha256 = "07ncczs8yndga2f8p4386c827l4fxwzl0pbwp7ijnhcsmlbsd0a4";
+        sha256 = "0m04hhk72casbbqixqg4xm6a86spl0saci1mj9cqci35d56wppm3";
         authors = [
           "rodrimati1992 <rodrimatt1985@gmail.com>"
         ];
@@ -716,9 +716,9 @@ rec {
       };
       "const_format_proc_macros" = rec {
         crateName = "const_format_proc_macros";
-        version = "0.2.34";
+        version = "0.2.37";
         edition = "2021";
-        sha256 = "0i3pxxcl4xvwq4mlfg3csb4j0n6v0mhj07p6yk0vlvdirznc4mqx";
+        sha256 = "0ndn186d13yv97fbry163bacz9mz0j66hnyb11pm0hm6d415f6wl";
         procMacro = true;
         authors = [
           "rodrimati1992 <rodrimatt1985@gmail.com>"
