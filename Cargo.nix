@@ -2342,9 +2342,9 @@ rec {
       };
       "js-sys" = rec {
         crateName = "js-sys";
-        version = "0.3.106";
+        version = "0.3.107";
         edition = "2021";
-        sha256 = "1icwmpjw54lb7vg5926k5y4y5jbiih0zxhwgjwnzn475v90xk0vq";
+        sha256 = "0fjdb084avbdxqb6n14lzszwn91wg88npasfym7bz2q9ahhrvh4d";
         libName = "js_sys";
         authors = [
           "The wasm-bindgen Developers"
@@ -2544,9 +2544,9 @@ rec {
       };
       "log" = rec {
         crateName = "log";
-        version = "0.4.34";
+        version = "0.4.35";
         edition = "2021";
-        sha256 = "1ihkzn0m33ab79fcl4mkb04n5iwqzbxzyw7l7hazqkffaqzbvy7r";
+        sha256 = "0p002750b2hab9bnlxxrvk5g9dvyaf23kiy39s6wsi6s29nzh5ax";
         authors = [
           "The Rust Project Developers"
         ];
@@ -3123,9 +3123,9 @@ rec {
       };
       "openssl-probe" = rec {
         crateName = "openssl-probe";
-        version = "0.2.1";
+        version = "0.2.2";
         edition = "2021";
-        sha256 = "1gpwpb7smfhkscwvbri8xzbab39wcnby1jgz1s49vf1aqgsdx1vw";
+        sha256 = "1c90103d6q2qqf2ihgd9dxhczi8kk97bg52fnzb2y4sl2x0nn0vy";
         libName = "openssl_probe";
         authors = [
           "Alex Crichton <alex@alexcrichton.com>"
@@ -4188,9 +4188,9 @@ rec {
       };
       "signal-hook" = rec {
         crateName = "signal-hook";
-        version = "0.4.5";
+        version = "0.4.6";
         edition = "2018";
-        sha256 = "0pj3d322mh5v117493dhs542h0gq03hqs998nfdh96nmsckzm7xj";
+        sha256 = "0x1a06g3wn874zc0z6c09g5z03bb5abs7q3ss6dafb3pzmx49xs9";
         libName = "signal_hook";
         authors = [
           "Michal 'vorner' Vaner <vorner@vorner.cz>"
@@ -5636,9 +5636,25 @@ rec {
       };
       "utf8_iter" = rec {
         crateName = "utf8_iter";
-        version = "1.0.4";
+        version = "1.1.0";
         edition = "2021";
-        sha256 = "1gmna9flnj8dbyd8ba17zigrp9c4c3zclngf5lnb5yvz1ri41hdn";
+        sha256 = "1w7d0f7xc46qfmb7m6zy5y6in1mblmzbhcyhx766zhkiwp9xjfxg";
+        authors = [
+          "Henri Sivonen <hsivonen@hsivonen.fi>"
+        ];
+        dependencies = [
+          {
+            name = "utf_types";
+            packageId = "utf_types";
+          }
+        ];
+
+      };
+      "utf_types" = rec {
+        crateName = "utf_types";
+        version = "1.0.0";
+        edition = "2021";
+        sha256 = "1dhbsnxfxxbg9a13anjfax5i7jyd51nkngs5g1r3c2lqhr944frs";
         authors = [
           "Henri Sivonen <hsivonen@hsivonen.fi>"
         ];
@@ -5701,9 +5717,9 @@ rec {
       };
       "wasm-bindgen" = rec {
         crateName = "wasm-bindgen";
-        version = "0.2.129";
+        version = "0.2.130";
         edition = "2021";
-        sha256 = "02flhqld01jqb6vbfyx1gb8s78g1pnq2164daxad93y6mhrlzdcv";
+        sha256 = "071xi9mqha1vdrxsjgndjgcf0azkl8g5yahkn2qbiiynvla1q650";
         libName = "wasm_bindgen";
         authors = [
           "The wasm-bindgen Developers"
@@ -5712,11 +5728,6 @@ rec {
           {
             name = "cfg-if";
             packageId = "cfg-if";
-          }
-          {
-            name = "once_cell";
-            packageId = "once_cell";
-            usesDefaultFeatures = false;
           }
           {
             name = "wasm-bindgen-macro";
@@ -5746,9 +5757,9 @@ rec {
       };
       "wasm-bindgen-macro" = rec {
         crateName = "wasm-bindgen-macro";
-        version = "0.2.129";
+        version = "0.2.130";
         edition = "2021";
-        sha256 = "0dc5xq09sy1v9ns1fhb0cnyqz5p1wcjjvkdmxskj9qhnbg1x0a9f";
+        sha256 = "1ncfybmdiczbsjz8a257a13k8n7dnl15khvgjrkbzgcslc11m4vf";
         procMacro = true;
         libName = "wasm_bindgen_macro";
         authors = [
@@ -5770,9 +5781,9 @@ rec {
       };
       "wasm-bindgen-macro-support" = rec {
         crateName = "wasm-bindgen-macro-support";
-        version = "0.2.129";
+        version = "0.2.130";
         edition = "2021";
-        sha256 = "1dx6w90f14avmhri7ss9lyz03060g6475r4axy3bm7biqf5ill3g";
+        sha256 = "0fm58fh6gkhlmi15rhzvcgz35x5s6kkvi9ik3s1vsmg4h11bb91c";
         libName = "wasm_bindgen_macro_support";
         authors = [
           "The wasm-bindgen Developers"
@@ -5806,10 +5817,10 @@ rec {
       };
       "wasm-bindgen-shared" = rec {
         crateName = "wasm-bindgen-shared";
-        version = "0.2.129";
+        version = "0.2.130";
         edition = "2021";
         links = "wasm_bindgen";
-        sha256 = "1ilmp5d3sl8lrq9djhcs90gk66yvk8mgwk4sfrvpvkd75b2wkw13";
+        sha256 = "17iq85zyk1z7hq533c0apj5ix0y0ks35fbszxv31cl3jk0vrq7rv";
         libName = "wasm_bindgen_shared";
         authors = [
           "The wasm-bindgen Developers"
