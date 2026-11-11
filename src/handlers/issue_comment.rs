@@ -48,7 +48,12 @@ pub async fn issue_comment_handler(context: Context, extra: Arc<AppData>) -> Res
         .as_ref()
         .context("Repository information missing from event")?;
 
-    let body = payload.comment.body.as_deref().unwrap_or_default();
+    let body = payload
+        .comment
+        .body
+        .as_deref()
+        .unwrap_or_default()
+        .replace("\r\n", "\n");
     let comment_id = payload.comment.id;
     let pr_number = payload.issue.number;
     let pr_url = payload.issue.html_url.as_str();
@@ -83,7 +88,7 @@ pub async fn issue_comment_handler(context: Context, extra: Arc<AppData>) -> Res
         .context("Failed to check if PR is mergeable")?;
 
     match is_mergeable {
-        FastForwardStatus::NotMergeable => match body {
+        FastForwardStatus::NotMergeable => match body.as_str() {
             NOT_MERGEABLE => {}
             _ => {
                 info!("PR #{} is not mergeable, updating comment", pr_number);
@@ -92,7 +97,7 @@ pub async fn issue_comment_handler(context: Context, extra: Arc<AppData>) -> Res
         },
 
         FastForwardStatus::Mergeable => {
-            match body {
+            match body.as_str() {
                 CHECKED => {
                     handle_merge_request(&client, repository, &pr, comment_id, pr_number, pr_url)
                         .await?;
