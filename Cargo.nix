@@ -536,9 +536,9 @@ rec {
       };
       "bumpalo" = rec {
         crateName = "bumpalo";
-        version = "3.20.3";
+        version = "3.20.4";
         edition = "2021";
-        sha256 = "0jc6va3nwcqikm7chnpdv1s87my3gs2j7g1sc7g3k91brg3arxbj";
+        sha256 = "1nrq69ym33pmydashsxw1447a0r3v1q87drch9xzpchyzmkcz847";
         authors = [
           "Nick Fitzgerald <fitzgen@gmail.com>"
         ];
@@ -567,9 +567,9 @@ rec {
       };
       "cc" = rec {
         crateName = "cc";
-        version = "1.11.1";
+        version = "1.11.2";
         edition = "2021";
-        sha256 = "0mgicvynjmz4xan2nbdi1dr62pjqb9kikml0j21qq3zzdw9aiwjg";
+        sha256 = "0i8xv6psbly5zn2vpmv283cnl402jwlw3x6gjmx5r92lh4z9xvrk";
         dependencies = [
           {
             name = "find-msvc-tools";
@@ -973,9 +973,9 @@ rec {
       };
       "errno" = rec {
         crateName = "errno";
-        version = "0.3.14";
+        version = "0.3.15";
         edition = "2018";
-        sha256 = "1szgccmh8vgryqyadg8xd58mnwwicf39zmin3bsn63df2wbbgjir";
+        sha256 = "0xj7g0gdrgylxchyzxpfvvb5322j87zbhgal3pjr1fyfyiw6wpg3";
         authors = [
           "Chris Wong <lambda.fairy@gmail.com>"
           "Dan Gohman <dev@sunfishcode.online>"
@@ -2630,9 +2630,9 @@ rec {
       };
       "mio" = rec {
         crateName = "mio";
-        version = "1.2.4";
+        version = "1.2.5";
         edition = "2021";
-        sha256 = "1vl6px9zy0pwhlwnw3cknsqyzkg8bcpiwiq4cgicf2fwgywfv20p";
+        sha256 = "0jlwrib8a3yp5h4j9s8z6qyh9k50lp8fjh38rmrsbc027y81lli0";
         authors = [
           "Carl Lerche <me@carllerche.com>"
           "Thomas de Zeeuw <thomasdezeeuw@gmail.com>"
@@ -3726,9 +3726,9 @@ rec {
       };
       "rustls-webpki" = rec {
         crateName = "rustls-webpki";
-        version = "0.103.16";
+        version = "0.103.17";
         edition = "2021";
-        sha256 = "10djm2f00xzi5qlbcfqjhhn2smk2h9aw8b4l74qncz4xsfvb2hs4";
+        sha256 = "1m9zhn7hxx8xkn16833cd6634z6l045rf72sr8zq453wi057d873";
         libName = "webpki";
         dependencies = [
           {
