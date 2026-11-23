@@ -551,9 +551,9 @@ rec {
       };
       "bytes" = rec {
         crateName = "bytes";
-        version = "1.12.1";
+        version = "1.12.2";
         edition = "2021";
-        sha256 = "017z19dpg4f942h051m7bpnzcgng042hhcpd7bmg7bjjqd42lrgw";
+        sha256 = "0z6xjs7a66qmhag9nlvv8m4wnk370c8cg8l4qqr8fbay06yzwvbp";
         authors = [
           "Carl Lerche <me@carllerche.com>"
           "Sean McArthur <sean@seanmonstar.com>"
@@ -567,9 +567,9 @@ rec {
       };
       "cc" = rec {
         crateName = "cc";
-        version = "1.11.2";
+        version = "1.11.3";
         edition = "2021";
-        sha256 = "0i8xv6psbly5zn2vpmv283cnl402jwlw3x6gjmx5r92lh4z9xvrk";
+        sha256 = "0sgskgkiv1502hz51s6hd125a1jayb0dyv6aw1f38s5kmliy1w02";
         dependencies = [
           {
             name = "find-msvc-tools";
@@ -1022,9 +1022,9 @@ rec {
       };
       "form_urlencoded" = rec {
         crateName = "form_urlencoded";
-        version = "1.2.2";
+        version = "1.2.3";
         edition = "2018";
-        sha256 = "1kqzb2qn608rxl3dws04zahcklpplkd5r1vpabwga5l50d2v4k6b";
+        sha256 = "0vph40jb1qvkvl52aigslr0hvbg1dhiwdwaxg48i5yxgkqcqk95g";
         authors = [
           "The rust-url developers"
         ];
@@ -2665,9 +2665,9 @@ rec {
       };
       "nix" = rec {
         crateName = "nix";
-        version = "0.31.3";
+        version = "0.31.4";
         edition = "2021";
-        sha256 = "0gbwnjfny9rq9hl5bz4ry520n9rnfknna4bg88n66f7zx3yx486g";
+        sha256 = "1xz7bg7jb612vcn77vz43rkaw96qrl8iz0fsfhr4yfwd2kl1rj1b";
         dependencies = [
           {
             name = "bitflags";
@@ -2690,14 +2690,14 @@ rec {
           }
         ];
         features = {
-          "aio" = [ "pin-utils" ];
+          "aio" = [ "pin-project-lite" ];
           "dir" = [ "fs" ];
           "event" = [ "poll" ];
           "memoffset" = [ "dep:memoffset" ];
           "mount" = [ "uio" ];
           "mqueue" = [ "fs" ];
           "net" = [ "socket" ];
-          "pin-utils" = [ "dep:pin-utils" ];
+          "pin-project-lite" = [ "dep:pin-project-lite" ];
           "ptrace" = [ "process" ];
           "sched" = [ "process" ];
           "signal" = [ "process" ];
@@ -3266,9 +3266,9 @@ rec {
       };
       "pin-project" = rec {
         crateName = "pin-project";
-        version = "1.1.13";
+        version = "1.2.0";
         edition = "2021";
-        sha256 = "09091qp946lpmjz4yp0xil1r5v4hgc91fi19dg5csayhdqrv4ri4";
+        sha256 = "1jac2z46kb5yng2f968w3z7b2y7n0dyawv8accid9fq88wzi5hm6";
         libName = "pin_project";
         dependencies = [
           {
@@ -3280,9 +3280,9 @@ rec {
       };
       "pin-project-internal" = rec {
         crateName = "pin-project-internal";
-        version = "1.1.13";
+        version = "1.2.0";
         edition = "2021";
-        sha256 = "12rzlh07i1sdgrvzj6wgkka5bjqyvbfsl8knq6qi7g16m7q9aqy9";
+        sha256 = "0mkpz2ilap8nl4kblixc9a03rwbmn87vca5k9gjc2i7rdpyki29m";
         procMacro = true;
         libName = "pin_project_internal";
         dependencies = [
@@ -3296,7 +3296,7 @@ rec {
           }
           {
             name = "syn";
-            packageId = "syn 2.0.119";
+            packageId = "syn 3.0.10";
             usesDefaultFeatures = false;
             features = [ "parsing" "printing" "clone-impls" "proc-macro" "full" "visit-mut" ];
           }
@@ -3305,9 +3305,9 @@ rec {
       };
       "pin-project-lite" = rec {
         crateName = "pin-project-lite";
-        version = "0.2.17";
+        version = "0.2.18";
         edition = "2018";
-        sha256 = "1kfmwvs271si96zay4mm8887v5khw0c27jc9srw1a75ykvgj54x8";
+        sha256 = "0li7lxjqidvbksliq1jc7vl5izypdkcr0fsms1gncbam35bh2f69";
         libName = "pin_project_lite";
 
       };
@@ -3465,9 +3465,9 @@ rec {
       };
       "regex-automata" = rec {
         crateName = "regex-automata";
-        version = "0.4.18";
+        version = "0.4.19";
         edition = "2021";
-        sha256 = "1cml0rm0ssqfkibh9nh3gy4b6hbsbicj1rihpwf2a4v4nawm71dd";
+        sha256 = "0n0i8kyv1lbpvb1i6a5x7mrybaml5q8p680s19m50mzlgpq0xmj1";
         libName = "regex_automata";
         authors = [
           "The Rust Project Developers"
@@ -3526,9 +3526,9 @@ rec {
       };
       "regex-syntax" = rec {
         crateName = "regex-syntax";
-        version = "0.8.11";
+        version = "0.8.12";
         edition = "2021";
-        sha256 = "1m25h5q2wp976fb9gc3dsc9l99svcvd5cri8lncb51c46ydgzxnn";
+        sha256 = "1xplhpgv7827jixdkhh17y899s8irsh5hwmrrb1y9898d9p080nr";
         libName = "regex_syntax";
         authors = [
           "The Rust Project Developers"
@@ -4294,9 +4294,9 @@ rec {
       };
       "smallvec" = rec {
         crateName = "smallvec";
-        version = "1.16.5";
+        version = "1.16.6";
         edition = "2018";
-        sha256 = "0ipfizwpq0byhrl50xcizs2yf758mgccmq6s5nqk8wszi94hk4ql";
+        sha256 = "0nbvgy2346gisl3kj8hh2dxvplhgzysx2mgcj2frbpnm6ljm8i1j";
         authors = [
           "The Servo Project Developers"
         ];
@@ -5579,9 +5579,9 @@ rec {
       };
       "url" = rec {
         crateName = "url";
-        version = "2.5.8";
+        version = "2.5.9";
         edition = "2018";
-        sha256 = "1v8f7nx3hpr1qh76if0a04sj08k86amsq4h8cvpw6wvk76jahrzz";
+        sha256 = "06ivkcv3ljdrp34vlr8n2byyzk7m43q4r3g8ggqhwb5lgd0d437h";
         authors = [
           "The rust-url developers"
         ];
@@ -6777,9 +6777,9 @@ rec {
       };
       "zeroize" = rec {
         crateName = "zeroize";
-        version = "1.9.1";
+        version = "1.9.2";
         edition = "2024";
-        sha256 = "0yb8iykihpl3hfw5c4silw2lklpfxajkaa9yj1qw6jsy5hwq8c71";
+        sha256 = "1an5zxp4cnc9gz1zyygxylndsmvmkzagqjndlkma3aq5925gzk45";
         authors = [
           "The RustCrypto Project Developers"
         ];
